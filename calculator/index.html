@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            background-color: #72A0C1;
+        }
+        
+        table {
+            padding: 10px;
+            border: solid 1px black;
+            border-radius: 10px;
+            background-color: #002244;
+        }
+        
+        input[type="button"] {
+            background-color: purple;
+            color: white;
+            border: solid 2px purple;
+            width: 100%;
+            height: 67%;
+            border-radius: 6px;
+            font-size: 16px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        input[type="text"] {
+            background-color: white;
+            border: none;
+            border-radius: 6px;
+            width: 100%;
+            height: 67%;
+            box-sizing: border-box;
+            outline: none;
+            font-size: 20px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .equal-btn input,
+        .clr-btn input {
+            background-color: #ff1493;
+            border-color: #ff1493;
+        }
+        
+        td {
+            padding: 2px;
+        }
+        
+        @media(max-width:518px) {
+            table {
+                width: 100%;
+            }
+        }
+        
+        @media(max-width:320px) {
+            table {
+                width: 100%;
+            }
+        }
+        
+        @media(max-width:280px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            table {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>CALCULATOR</h1>
+        <table width="500px" height="500px">
+            <tr>
+                <td colspan="3" class="input-text"><input type="text" id="result"></td>
+                <td class="clr-btn"><input type="button" value="C" onclick="clr()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="view('1')"></td>
+                <td><input type="button" value="2" onclick="view('2')"></td>
+                <td><input type="button" value="3" onclick="view('3')"></td>
+                <td class="div"><input type="button" value="/" onclick="view('/')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="view('4')"></td>
+                <td><input type="button" value="5" onclick="view('5')"></td>
+                <td><input type="button" value="6" onclick="view('6')"></td>
+                <td><input type="button" value="-" onclick="view('-')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onclick="view('7')"></td>
+                <td><input type="button" value="8" onclick="view('8')"></td>
+                <td><input type="button" value="9" onclick="view('9')"></td>
+                <td><input type="button" value="+" onclick="view('+')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="." onclick="view('.')"></td>
+                <td><input type="button" value="0" onclick="view('0')"></td>
+                <td class="equal-btn"><input type="button" value="=" onclick="compute()"></td>
+                <td><input type="button" value="*" onclick="view('*')"></td>
+            </tr>
+        </table>
+        <script>
+            function view(num) {
+                document.getElementById("result").value += num
+
+
+            }
+
+            function compute() {
+                let x = document.getElementById("result").value
+                let y = eval(x)
+                document.getElementById("result").value = y
+
+            }
+
+            function clr() {
+                document.getElementById("result").value = ""
+            }
+        </script>
+</body>
+
+</html>
